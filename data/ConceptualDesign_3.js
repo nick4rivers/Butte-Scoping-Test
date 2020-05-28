@@ -13,7 +13,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Mouth",
         "Priority": "MODERATE",
         "Length-M": 812.7,
-        "Photo": "<img src=\"\/photos\/mouth.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/mouth.jpg\" width=\"300\">",
         "Descriptio": "Large alluvial fan near confluence with John Day river. Willow is abundance, and low floodplains also offer opportunities for wetland expansion. However, given moderate channel complexity and vegetation this reach is not a high restoration priority for s"
       },
       "geometry": {
@@ -95,7 +95,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Overlook",
         "Priority": "MODERATE",
         "Length-M": 3064.8,
-        "Photo": "<img src=\"\/photos\/overlook.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/overlook.jpg\" width=\"300\">",
         "Descriptio": "Reach is characterized by a simple channel with some amount of willow development. Several small beaver colonies are also present. Elevation of disconnected floodplain surfaces relative to the channel may limit restoration potential, and lack of road acc"
       },
       "geometry": {
@@ -307,7 +307,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Target Lower",
         "Priority": "HIGH",
         "Length-M": 1111.5,
-        "Photo": "<img src=\"\/photos\/target-lower.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/target-lower.jpg\" width=\"300\">",
         "Descriptio": "Lacking riparian vegetation, and having a high potential for increasing wetland \/ riparian extent and channel habitat quality. Channel is in close proximity to disconnected terraces, and easy access for treatment construction."
       },
       "geometry": {
@@ -404,7 +404,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Target Middle",
         "Priority": "HIGH",
         "Length-M": 5454.3,
-        "Photo": "<img src=\"\/photos\/target-middle.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/target-middle.jpg\" width=\"300\">",
         "Descriptio": "More incised channel with some amount of mature alder lining channel. Extremely simplified channel offers high potential to increase salmonid habitat quantity and quality as pool and bar development. Treatments should largely consist of PALS constructed"
       },
       "geometry": {
@@ -822,7 +822,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Saloon",
         "Priority": "LOW",
         "Length-M": 1321.1,
-        "Photo": "<img src=\"\/photos\/saloon.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/saloon.jpg\" width=\"300\">",
         "Descriptio": "Close proximity to roads, fields, and other infrastructure detract from the restoration potential of this reach."
       },
       "geometry": {
@@ -930,7 +930,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Saloon Upper",
         "Priority": "MODERATE",
         "Length-M": 1997.2,
-        "Photo": "<img src=\"\/photos\/saloon-upper.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/saloon-upper.jpg\" width=\"300\">",
         "Descriptio": "Similar to the channel configuration below the ranch house. However, there appears to be more top soil and readily erodible banks. Proximity to the road and fields still limit lateral expansion of the riverscape."
       },
       "geometry": {
@@ -1096,7 +1096,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Upstream Boundary",
         "Priority": "LOW",
         "Length-M": 1276.6,
-        "Photo": "<img src=\"\/photos\/upperbound.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/upperbound.jpg\" width=\"300\">",
         "Descriptio": "Reach is characterized by active beaver complex within an inset floodplain. The incised floodplain is in close proximity to a road and agricultural fields limiting opportunities for enhancing wetland recovery. Beavers activity should be monitored over ti"
       },
       "geometry": {
@@ -1214,7 +1214,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Deep Creek Lower",
         "Priority": "MODERATE",
         "Length-M": 387.0,
-        "Photo": "<img src=\"\/photos\/deep-lower.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/deep-lower.jpg\" width=\"300\">",
         "Descriptio": "Reach consists of well established riparian vegetation and moderate channel complexity. A relatively confined and incised channel also does not offer extensive potential for riparian expansion."
       },
       "geometry": {
@@ -1246,7 +1246,7 @@ var json_ConceptualDesign_3 = {
         "Reach-Name": "Deep Creek Meadow",
         "Priority": "HIGH",
         "Length-M": 1475.6,
-        "Photo": "<img src=\"\/photos\/deepmeadow.jpg\" width=\"300\">",
+        "Photo": "<img src=\"\photos\/deepmeadow.jpg\" width=\"300\">",
         "Descriptio": "Less confined channel and lower abundance of riparian vegetation offers high potential for riparian expansion and creation of floodplain habitat. In long, term cattle exclusion would maximize restoration potential."
       },
       "geometry": {
