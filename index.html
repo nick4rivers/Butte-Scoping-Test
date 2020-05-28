@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="css/qgis2web.css">
+    <link rel="stylesheet" href="css/fontawesome-all.min.css">
+    <style>
+        html,
+        body,
+        #map {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+    <title>Butte Creek LT-PBR Scoping</title>
+</head>
+
+<body>
+    <div id="map">
+    </div>
+    <script src="js/qgis2web_expressions.js"></script>
+    <script src="js/leaflet.js"></script>
+    <script src="js/leaflet.rotatedMarker.js"></script>
+    <script src="js/leaflet.pattern.js"></script>
+    <script src="js/leaflet-hash.js"></script>
+    <script src="js/Autolinker.min.js"></script>
+    <script src="js/rbush.min.js"></script>
+    <script src="js/labelgun.min.js"></script>
+    <script src="js/labels.js"></script>
+    <script src="data/PropertyBoundary_1.js"></script>
+    <script src="data/ButteCreekBoundary_2.js"></script>
+    <script src="data/ConceptualDesign_3.js"></script>
+    <script>
+        var map = L.map('map', {
+            zoomControl: true,
+            maxZoom: 28,
+            minZoom: 1
+        }).fitBounds([
+            [44.91618798613136, -120.52303323039182],
+            [45.17760199639274, -120.14772234151069]
+        ]);
+        var hash = new L.Hash(map);
+
+        var autolinker = new Autolinker({
+            truncate: {
+                length: 30,
+                location: 'smart'
+            }
+        });
+        var bounds_group = new L.featureGroup([]);
+
+        function setBounds() {}
+        map.createPane('pane_GoogleSat_0');
+        map.getPane('pane_GoogleSat_0').style.zIndex = 400;
+        var layer_GoogleSat_0 = L.tileLayer('http://mt0.google.com/vt/lyrs=s&hl=en&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSat_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 18
+        });
+        layer_GoogleSat_0;
+        map.addLayer(layer_GoogleSat_0);
+
+        function pop_PropertyBoundary_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AgentName'] !== null ? autolinker.link(feature
+                .properties['AgentName'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Area'] !== null ? autolinker.link(feature.properties[
+                'Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {
+                maxHeight: 400
+            });
+        }
+
+        function style_PropertyBoundary_1_0() {
+            return {
+                pane: 'pane_PropertyBoundary_1',
+                opacity: 1,
+                color: 'rgba(212,20,20,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(229,182,54,0.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_PropertyBoundary_1');
+        map.getPane('pane_PropertyBoundary_1').style.zIndex = 401;
+        map.getPane('pane_PropertyBoundary_1').style['mix-blend-mode'] = 'normal';
+        var layer_PropertyBoundary_1 = new L.geoJson(json_PropertyBoundary_1, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_PropertyBoundary_1',
+            layerName: 'layer_PropertyBoundary_1',
+            pane: 'pane_PropertyBoundary_1',
+            onEachFeature: pop_PropertyBoundary_1,
+            style: style_PropertyBoundary_1_0,
+        });
+        bounds_group.addLayer(layer_PropertyBoundary_1);
+        map.addLayer(layer_PropertyBoundary_1);
+
+        function pop_ButteCreekBoundary_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID_1'] !== null ? autolinker.link(feature
+                .properties['OBJECTID_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature
+                .properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HUC_10'] !== null ? autolinker.link(feature
+                .properties['HUC_10'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HUC_8'] !== null ? autolinker.link(feature.properties[
+                'HUC_8'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NCONTRB_A'] !== null ? autolinker.link(feature
+                .properties['NCONTRB_A'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HU_10_GNIS'] !== null ? autolinker.link(feature
+                .properties['HU_10_GNIS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HU_10_DS'] !== null ? autolinker.link(feature
+                .properties['HU_10_DS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HU_10_NAME'] !== null ? autolinker.link(feature
+                .properties['HU_10_NAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HU_10_MOD'] !== null ? autolinker.link(feature
+                .properties['HU_10_MOD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['HU_10_TYPE'] !== null ? autolinker.link(feature
+                .properties['HU_10_TYPE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['META_ID'] !== null ? autolinker.link(feature
+                .properties['META_ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_LENG'] !== null ? autolinker.link(feature
+                .properties['SHAPE_LENG'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_AR_1'] !== null ? autolinker.link(feature
+                .properties['SHAPE_AR_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Le_1'] !== null ? autolinker.link(feature
+                .properties['Shape_Le_1'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Le_2'] !== null ? autolinker.link(feature
+                .properties['Shape_Le_2'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Area'] !== null ? autolinker.link(feature
+                .properties['Shape_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Project'] !== null ? autolinker.link(feature
+                .properties['Project'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {
+                maxHeight: 400
+            });
+        }
+
+        function style_ButteCreekBoundary_2_0() {
+            return {
+                pane: 'pane_ButteCreekBoundary_2',
+                opacity: 1,
+                color: 'rgba(31,120,180,1.0)',
+                dashArray: '10,5',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(196,60,57,0.0)',
+                interactive: false,
+            }
+        }
+        map.createPane('pane_ButteCreekBoundary_2');
+        map.getPane('pane_ButteCreekBoundary_2').style.zIndex = 402;
+        map.getPane('pane_ButteCreekBoundary_2').style['mix-blend-mode'] = 'normal';
+        var layer_ButteCreekBoundary_2 = new L.geoJson(json_ButteCreekBoundary_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_ButteCreekBoundary_2',
+            layerName: 'layer_ButteCreekBoundary_2',
+            pane: 'pane_ButteCreekBoundary_2',
+            onEachFeature: pop_ButteCreekBoundary_2,
+            style: style_ButteCreekBoundary_2_0,
+        });
+        bounds_group.addLayer(layer_ButteCreekBoundary_2);
+        map.addLayer(layer_ButteCreekBoundary_2);
+
+        function pop_ConceptualDesign_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Reach Name</strong><br />' + (feature.properties['Reach-Name'] !==
+                null ? autolinker.link(feature.properties['Reach-Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Treatment Priority</th>\
+                        <td>' + (feature.properties['Priority'] !== null ? autolinker.link(feature.properties[
+                'Priority'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Reach Length</th>\
+                        <td>' + (feature.properties['Length-M'] !== null ? autolinker.link(feature.properties[
+                'Length-M'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Photo</strong><br />' + (feature.properties['Photo'] !== null ?
+                autolinker.link(feature.properties['Photo'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>Descriptio</strong><br />' + (feature.properties['Descriptio'] !==
+                null ? autolinker.link(feature.properties['Descriptio'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {
+                maxHeight: 400
+            });
+        }
+
+        function style_ConceptualDesign_3_0(feature) {
+            switch (String(feature.properties['Reach-Name'])) {
+                case 'Deep Creek Lower':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(215,38,129,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Deep Creek Meadow':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(105,139,214,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Mouth':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(106,234,89,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Overlook':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(120,194,201,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Saloon':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(76,13,234,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Saloon Upper':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(211,103,225,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Target Lower':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(50,208,127,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Target Middle':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(224,174,58,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                case 'Upstream Boundary':
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(189,223,103,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+                default:
+                    return {
+                        pane: 'pane_ConceptualDesign_3',
+                            opacity: 1,
+                            color: 'rgba(214,95,82,1.0)',
+                            dashArray: '',
+                            lineCap: 'round',
+                            lineJoin: 'bevel',
+                            weight: 8.0,
+                            fillOpacity: 0,
+                            interactive: true,
+                    }
+                    break;
+            }
+        }
+        map.createPane('pane_ConceptualDesign_3');
+        map.getPane('pane_ConceptualDesign_3').style.zIndex = 403;
+        map.getPane('pane_ConceptualDesign_3').style['mix-blend-mode'] = 'normal';
+        var layer_ConceptualDesign_3 = new L.geoJson(json_ConceptualDesign_3, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_ConceptualDesign_3',
+            layerName: 'layer_ConceptualDesign_3',
+            pane: 'pane_ConceptualDesign_3',
+            onEachFeature: pop_ConceptualDesign_3,
+            style: style_ConceptualDesign_3_0,
+        });
+        bounds_group.addLayer(layer_ConceptualDesign_3);
+        map.addLayer(layer_ConceptualDesign_3);
+        var title = new L.Control();
+        title.onAdd = function (map) {
+            this._div = L.DomUtil.create('div', 'info');
+            this.update();
+            return this._div;
+        };
+        title.update = function () {
+            this._div.innerHTML = '<h2>Butte Creek LT-PBR Scoping</h2>';
+        };
+        title.addTo(map);
+        var baseMaps = {};
+        L.control.layers(baseMaps, {
+            'Conceptual Design<br /><table><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_DeepCreekLower0.png" /></td><td>Deep Creek Lower</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_DeepCreekMeadow1.png" /></td><td>Deep Creek Meadow</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_Mouth2.png" /></td><td>Mouth</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_Overlook3.png" /></td><td>Overlook</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_Saloon4.png" /></td><td>Saloon</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_SaloonUpper5.png" /></td><td>Saloon Upper</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_TargetLower6.png" /></td><td>Target Lower</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_TargetMiddle7.png" /></td><td>Target Middle</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_UpstreamBoundary8.png" /></td><td>Upstream Boundary</td></tr><tr><td style="text-align: center;"><img src="legend/ConceptualDesign_3_9.png" /></td><td></td></tr></table>': layer_ConceptualDesign_3,
+            '<img src="legend/ButteCreekBoundary_2.png" /> Butte Creek Boundary': layer_ButteCreekBoundary_2,
+            '<img src="legend/PropertyBoundary_1.png" /> Property Boundary': layer_PropertyBoundary_1,
+            "Google Sat": layer_GoogleSat_0,
+        }, {
+            collapsed: false
+        }).addTo(map);
+        setBounds();
+        resetLabels([layer_ConceptualDesign_3]);
+        map.on("zoomend", function () {
+            resetLabels([layer_ConceptualDesign_3]);
+        });
+        map.on("layeradd", function () {
+            resetLabels([layer_ConceptualDesign_3]);
+        });
+        map.on("layerremove", function () {
+            resetLabels([layer_ConceptualDesign_3]);
+        });
+    </script>
+</body>
+
+</html>
